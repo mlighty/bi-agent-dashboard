@@ -1,0 +1,28 @@
+# HubSpot Connection
+# 
+# HubSpot doesn't have a native Evidence connector, so we:
+# 1. Sync data via API to local DuckDB/Postgres
+# 2. Query that cached data from Evidence
+#
+# For actions (create/update contacts, deals, etc.), use the execution scripts directly.
+
+name: hubspot
+type: duckdb
+
+options:
+  filename: ../../data/hubspot_cache.duckdb
+
+# Environment variables needed:
+# HUBSPOT_ACCESS_TOKEN (private app access token)
+#
+# To create a private app:
+# 1. Go to HubSpot > Settings > Integrations > Private Apps
+# 2. Create app with scopes you need (crm.objects.contacts.read, etc.)
+# 3. Copy the access token
+
+# Available data after sync:
+# - contacts: All contacts with properties
+# - companies: All companies with properties  
+# - deals: All deals with properties
+# - deal_stages: Pipeline stages
+# - owners: HubSpot users/owners
