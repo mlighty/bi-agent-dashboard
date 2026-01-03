@@ -10,7 +10,7 @@ name: hubspot
 type: duckdb
 
 options:
-  filename: ../../data/hubspot_cache.duckdb
+  filename: hubspot_cache.duckdb
 
 # Environment variables needed:
 # HUBSPOT_ACCESS_TOKEN (private app access token)
